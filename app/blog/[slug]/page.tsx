@@ -25,12 +25,12 @@ export default async function PostPage({ params }: Props) {
     <>
       <Nav />
       <main className="wrap">
-        <article className="page post">
-          <Link className="more" href="/blog/">
-            ← All posts
+        <article className="article">
+          <Link className="back" href="/blog/">
+            ← all writing
           </Link>
-          <h1 className="post-h1">{post.title}</h1>
-          <p className="meta">{formatDate(post.date)}</p>
+          <h1>{post.title}</h1>
+          <p className="mono meta">{formatDate(post.date)}</p>
           <div className="prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(post.body) }} />
         </article>
         <Footer />

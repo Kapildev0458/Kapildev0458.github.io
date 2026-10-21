@@ -59,10 +59,12 @@ export function renderMarkdown(body: string): string {
   return marked.parse(body, { async: false }) as string;
 }
 
-export function formatDate(date: string): string {
+export function formatDate(date: string, style: "day" | "month" = "day"): string {
   const d = new Date(date + "T00:00:00");
   if (Number.isNaN(d.getTime())) return date;
-  return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  return style === "month"
+    ? d.toLocaleDateString("en-IN", { month: "short", year: "2-digit" })
+    : d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
 // Shown under "Coming up" in the writing section until the posts exist.

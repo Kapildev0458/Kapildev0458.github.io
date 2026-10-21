@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Nav } from "@/components/nav";
-import { formatDate, getPosts } from "@/lib/blog";
+import { formatDate, getPosts, plannedPosts } from "@/lib/blog";
 
 export const metadata: Metadata = { title: "Writing" };
 
@@ -11,19 +11,25 @@ export default function BlogIndex() {
     <>
       <Nav />
       <main className="wrap">
-        <section className="page">
-          <p className="eyebrow">Writing</p>
-          <h2>Notes from building</h2>
-          <ul className="posts">
+        <header className="phead">
+          <h1 className="ptitle">Writing</h1>
+          <p className="sub">Notes from what I build and learn: fine-tuning, document AI, agents and systems.</p>
+        </header>
+        <section className="sec flush">
+          <ul className="rows">
             {posts.map((p) => (
               <li key={p.slug}>
-                <Link href={`/blog/${p.slug}/`}>
-                  <span>
-                    <span className="post-title">{p.title}</span>
-                    {p.summary && <span className="post-summary">{p.summary}</span>}
-                  </span>
-                  <span className="post-date">{formatDate(p.date)}</span>
-                </Link>
+                <span className="mono">{formatDate(p.date, "month")}</span>
+                <span className="t">
+                  <Link href={`/blog/${p.slug}/`}>{p.title}</Link>
+                  {p.summary && <span className="mono m">{p.summary}</span>}
+                </span>
+              </li>
+            ))}
+            {plannedPosts.map((t) => (
+              <li key={t}>
+                <span className="mono">soon</span>
+                <span className="t faint">{t}</span>
               </li>
             ))}
           </ul>
