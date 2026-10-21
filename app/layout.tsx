@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
-import { Dog } from "@/components/dog";
+import { Bruno } from "@/components/bruno";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({ subsets: ["latin"], weight: ["500", "700", "800"], variable: "--f-display" });
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        <Dog />
+        <Bruno />
       </body>
     </html>
   );

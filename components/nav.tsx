@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { profile } from "@/lib/profile";
-import { DogToggle } from "./dog";
 import { ThemeToggle } from "./theme-toggle";
 
 const links = [
@@ -47,7 +46,13 @@ export function Footer() {
       <a href={profile.linkedin} target="_blank" rel="noopener">
         LinkedIn
       </a>
-      <DogToggle />
+      {" · "}
+      <span className="credit">
+        Bruno the dog by{" "}
+        <a href="https://www.devraj.pro" target="_blank" rel="noopener">
+          Devraj Jhala
+        </a>
+      </span>
     </footer>
   );
 }

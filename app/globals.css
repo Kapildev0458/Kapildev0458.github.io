@@ -227,19 +227,17 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 0.84rem; bord
 .prose pre { background: var(--code-bg); color: var(--code-fg); padding: 16px; border-radius: 12px; overflow-x: auto; }
 .prose pre code { background: none; border: 0; padding: 0; color: inherit; }
 
-/* cursor dog */
-.dog { position: fixed; left: 0; top: 0; z-index: 20; cursor: pointer; user-select: none; will-change: transform; }
-.dog-sprite { display: block; }
-.dog svg { display: block; filter: drop-shadow(0 0 1px var(--dog-glow)); }
-.dog-sprite.jump { animation: dog-jump 0.5s ease-out; }
-@keyframes dog-jump { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-22px); } }
-.dog-bubble {
-  position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 4px; pointer-events: none;
-  font: 600 0.72rem var(--f-mono); color: var(--ink); background: var(--surface); border: 1px solid var(--line);
-  border-radius: 8px; padding: 2px 7px; white-space: nowrap;
+/* Bruno the dog (by Devraj Jhala) */
+#bruno { position: fixed; left: 0; top: 0; width: 84px; height: 84px; z-index: 30; pointer-events: none; transition: transform 0.11s linear; will-change: transform; }
+#bruno canvas { display: block; width: 100%; height: 100%; filter: drop-shadow(0 0 1.2px var(--dog-glow)) drop-shadow(0 0 1.2px var(--dog-glow)); }
+#bruno .hopper { display: block; }
+#bruno.hop .hopper { animation: hop 0.45s ease-out 2; }
+@keyframes hop { 50% { transform: translateY(-11px); } }
+#brunoHit { position: absolute; inset: 34% 14% 6% 14%; border: 0; padding: 0; background: none; border-radius: 12px; pointer-events: auto; cursor: pointer; }
+.woof {
+  position: absolute; z-index: 2; left: 50%; top: -1.45rem; transform: translate(-50%, 4px); white-space: nowrap;
+  font: 500 0.66rem var(--f-mono); color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0.12rem 0.5rem; opacity: 0; transition: opacity 0.2s, transform 0.2s;
 }
-.dog-z { background: none; border: 0; color: var(--muted); animation: dog-z 1.8s ease-in-out infinite; }
-.dog-z b { font-size: 0.9rem; margin-left: 1px; }
-@keyframes dog-z { 0% { opacity: 0; transform: translate(-30%, 6px); } 50% { opacity: 1; } 100% { opacity: 0; transform: translate(0, -8px); } }
-.dog-toggle { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
-@media (pointer: coarse) { .dog-toggle-wrap { display: none; } }
+.woof.on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 640px) { #bruno { width: 56px; height: 56px; } }
