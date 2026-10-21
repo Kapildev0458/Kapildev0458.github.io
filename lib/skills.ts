@@ -7,6 +7,6 @@ export const skills: { group: string; items: string[] }[] = [
     group: "GenAI & agents",
     items: ["RAG pipelines", "LangChain", "LangGraph", "Multi-agent systems", "Model Context Protocol"],
   },
-  { group: "Languages", items: ["Python", "C++", "C", "SQL"] },
+  { group: "Languages", items: ["Python", "Java", "C++", "C", "SQL"] },
   { group: "Infra & web", items: ["Kubernetes", "Helm", "React", "Linux", "Git", "GitHub"] },
 ];
