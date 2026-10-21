@@ -296,6 +296,7 @@ export function DogToggle() {
 
   return (
     <span className="dog-toggle-wrap">
+      {" · "}
       <button className="dog-toggle" type="button" onClick={toggle}>
         {on ? "Hide the dog" : "Bring the dog back"}
       </button>
